@@ -4,18 +4,15 @@ import java.util.Random;
 
 public class PokerGame {
 
-    //1.创建数组，用以存储扑克牌
+    //创建数组，用以存储扑克牌
     static String[] pokers = new String[54];
     //创建牌的方法
     public static String[] newPoker() {
-        //1.定义花色数组
         String[] colors = {"红桃","黑桃","梅花","方片"};
-        //2.定义牌面数组
         String[] numbers = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
-        //3.定义王
         String[] kings = {"大王","小王"};
         
-        //4.使用循环将牌存储到pokers数组
+        //使用循环将牌存储到pokers数组
        
         int index = 0;
         for(int i = 0 ; i < numbers.length ; i ++) {
@@ -24,7 +21,7 @@ public class PokerGame {
             }
         }
         
-        //5.大小王拷贝入pokers数组
+        //大小王拷贝入pokers数组
         System.arraycopy(kings, 0, pokers, index, 2);
         //6.输出牌
         System.out.println("现有一副扑克牌" + Arrays.toString(pokers) + "\n");
@@ -39,7 +36,7 @@ public class PokerGame {
         //2.定义数组，用以标识被随机取出的牌
         boolean[] mark = new boolean[pokers.length];
         
-        //3.洗牌
+        //洗牌
         for(int i = 0 ; i < pokers.length ; i ++) {
             //a.创建随机数
             Random rd = new Random();
@@ -63,13 +60,12 @@ public class PokerGame {
     
     //发牌的方法
     public static void sendPoker(String[] array) {
-        //1.定义玩家及底牌数组
         String[] one = new String[0];
         String[] two = new String[0];
         String[] three = new String[0];
         String[] underpoker = new String[3];
         
-        //2.循环进行发牌
+        //循环进行发牌
         for(int i = 0 ; i < pokers.length-3 ; i++) {
             if(i % 3 == 0) {
                 one = Arrays.copyOf(one, one.length+1);
@@ -91,11 +87,11 @@ public class PokerGame {
         System.out.println("底牌:" + Arrays.toString(underpoker));
     }
      public static void main(String[] args) {        
-        //2.创建牌  所有的牌赋值到array数组中
+        //创建牌
         pokers = newPoker();
-        //3.洗牌  这里的实参pokers是经过创建牌之后新生成的pokers
+        //洗牌
         String[] pokers2 = upsetPoker(pokers);
-        //4.发牌　　　    
+        //发牌　　　    
         sendPoker(pokers2);
 }
 
