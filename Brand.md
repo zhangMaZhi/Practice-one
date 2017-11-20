@@ -23,7 +23,7 @@ public class PokerGame {
         
         //大小王拷贝入pokers数组
         System.arraycopy(kings, 0, pokers, index, 2);
-        //6.输出牌
+        //输出牌
         System.out.println("现有一副扑克牌" + Arrays.toString(pokers) + "\n");
         
         return pokers;
@@ -31,22 +31,22 @@ public class PokerGame {
     
     //洗牌的方法
     public static String[] upsetPoker(String[] array) {
-        //1.定义新的数组，用以存储洗好的牌
+        //定义新的数组，用以存储洗好的牌
         String[] newpokers = new String[pokers.length];
-        //2.定义数组，用以标识被随机取出的牌
+        //定义数组，用以标识被随机取出的牌
         boolean[] mark = new boolean[pokers.length];
         
         //洗牌
         for(int i = 0 ; i < pokers.length ; i ++) {
-            //a.创建随机数
+            //创建随机数
             Random rd = new Random();
-            //b.获取随机数的下标
+            //获取随机数的下标
             int index = rd.nextInt(pokers.length);
-            //c.判断标识
+            //判断标识
             if(mark[index] == false) {
-                //d.将未洗过的牌存储入newpokers
+                //将未洗过的牌存储入newpokers
                 newpokers[i] = pokers[index];
-                //e.修改标识，被洗过的牌标记为true
+                //修改标识，被洗过的牌标记为true
             }else {
                 i --; //该次取随机数取到的是洗过的牌，则重新再取一次
             }
